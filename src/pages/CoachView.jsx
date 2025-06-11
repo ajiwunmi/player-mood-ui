@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import MoodSummary from "../components/MoodSummary";
 import DatePicker from "../components/DatePicker";
-import { getMoods } from "../api";
+import { getMoods } from "../Api";
 import { format } from "date-fns";
 
 export default function CoachView() {
