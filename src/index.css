@@ -1,0 +1,41 @@
+/* @import "tailwindcss";  */
+/* @import "tailwindcss"; */
+/* @theme {
+  
+  --color-dark: #0F172A;
+  --color-card: #1E293B;
+  --color-accent: #3B82F6;
+  --color-muted: #94A3B8;
+  --color-light: #F8FAFC;
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+
+  /* Font *
+  --font-sans: "Poppins", sans-serif;
+} */
+
+/* Base styles */
+/* @layer base {
+  body {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    font-family: var(--font-sans);
+  }
+} */
+
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0F172A;
+  --color-card: #1E293B;
+  --color-accent: #3B82F6;
+  --color-muted: #94A3B8;
+  --color-light: #F8FAFC;
+  --font-sans: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-sans);
+}
