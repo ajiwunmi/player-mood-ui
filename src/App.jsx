@@ -1,22 +1,25 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import PlayerView from "./pages/_1PlayerView";
+// 5. ✅ Update App.jsx
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PlayerView from "./pages/PlayerView";
 import CoachView from "./pages/CoachView";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
-	return (
-		<BrowserRouter>
-			<nav className="p-4 bg-gray-100 flex space-x-4">
-				<Link to="/" className="text-blue-600">
-					Player
-				</Link>
-				<Link to="/coach" className="text-blue-600">
-					Coach
-				</Link>
-			</nav>
-			<Routes>
-				<Route path="/" element={<PlayerView />} />
-				<Route path="/coach" element={<CoachView />} />
-			</Routes>
-		</BrowserRouter>
-	);
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<PlayerView />} />
+            <Route path="/player" element={<PlayerView />} />
+            <Route path="/coach" element={<CoachView />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
