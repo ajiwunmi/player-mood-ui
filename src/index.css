@@ -1,4 +1,8 @@
 @import "tailwindcss";
+
+body {
+  @apply bg-dark text-light font-sans;
+}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
