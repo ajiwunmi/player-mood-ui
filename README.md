@@ -1,12 +1,158 @@
-# React + Vite
+# Player Mood Board – Client End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React + Vite app where soccer players can submit their post-training mood using emojis. Coaches can view a live dashboard of team sentiment in real-time.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Player View
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Mobile-first interface
+- One-tap emoji mood selection: 😃 😐 😞
+- Animated thank-you feedback
+- No login required
+
+### Coach View
+
+- Live dashboard with counts of submitted moods
+- Auto-refreshes every 10 seconds
+- Optional date picker for past mood summaries
+
+---
+
+## Tech Stack
+
+| Layer      | Tool            |
+| ---------- | --------------- |
+| Framework  | React 18 + Vite |
+| Styling    | Tailwind CSS    |
+| API Client | Axios           |
+| Date Utils | date-fns        |
+| Routing    | React Router v6 |
+
+---
+
+## Project Structure
+
+frontend/
+
+├── public/
+
+├── src/
+
+│   ├── components/       # Reusable UI parts
+
+│   │   ├── EmojiButton.jsx
+
+│   │   ├── ThankYouMessage.jsx
+
+│   │   ├── MoodSummary.jsx
+
+│   │   └── DatePicker.jsx
+
+│   ├── pages/            # Views
+
+│   │   ├── PlayerView.jsx
+
+│   │   └── CoachView.jsx
+
+│   ├── api.js            # API functions
+
+│   ├── App.jsx           # Routing setup
+
+│   ├── index.js          # App entry point
+
+│   └── index.css         # Tailwind + animations
+
+├── tailwind.config.js
+
+├── postcss.config.js
+
+└── package.json
+
+## Getting Started
+
+### 1. Clone the project
+
+```
+git clone https://github.com/your-username/player-mood-board.git
+cd frontend
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app locally
+
+```bash
+npm run dev
+```
+
+Visit: [http://localhost:5173](http://localhost:5173/)
+
+---
+
+## API Integration
+
+This app communicates with a PHP backend via REST:
+
+### POST `/mood`
+
+```json
+{ "emoji": "happy" | "neutral" | "sad" }
+```
+
+### GET `/moods?date=YYYY-MM-DD`
+
+```json
+{ "happy": 4, "neutral": 2, "sad": 1 }
+```
+
+> ℹ️ Ensure the `baseURL` in `src/api.js` matches your backend server.
+
+---
+
+## Styling & UX
+
+* **Tailwind CSS** for clean mobile-first layout
+* **Emoji-based UI** with smooth transitions
+* **Animated thank-you screen** for players
+* **Responsive dashboard** for coaches
+
+---
+
+## Dependencies
+
+```bash
+npm install react react-dom react-router-dom axios date-fns
+npm install -D tailwindcss postcss autoprefixer @tailwindcss/postcss
+```
+
+Run Tailwind setup:
+
+```bash
+npx tailwindcss init -p
+```
+
+---
+
+## Testing Checklist
+
+* [X] Mood submission works on mobile
+* [X] Thank-you screen appears
+* [X] Coach dashboard updates every 10 seconds
+* [X] Date picker fetches correct historical data
+* [X] Fully responsive on all screen sizes
+
+---
+
+
+## License
+
+MIT — Free to use and modify.
+
+---
