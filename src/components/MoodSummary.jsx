@@ -1,18 +1,24 @@
+import { LuSmile, LuMeh, LuFrown } from "react-icons/lu";
+
 export default function MoodSummary({ counts }) {
-	return (
-		<div className="flex justify-around text-center text-xl mt-6 space-x-4">
-			<div className="bg-green-100 p-4 rounded shadow text-green-700 w-24">
-				<div className="text-3xl">😃</div>
-				<div className="text-lg font-semibold">{counts.happy}</div>
-			</div>
-			<div className="bg-gray-100 p-4 rounded shadow text-gray-700 w-24">
-				<div className="text-3xl">😐</div>
-				<div className="text-lg font-semibold">{counts.neutral}</div>
-			</div>
-			<div className="bg-red-100 p-4 rounded shadow text-red-700 w-24">
-				<div className="text-3xl">😞</div>
-				<div className="text-lg font-semibold">{counts.sad}</div>
-			</div>
-		</div>
-	);
+  const moods = [
+    { label: "Happy", icon: <LuSmile size={28} />, count: counts.happy },
+    { label: "Neutral", icon: <LuMeh size={28} />, count: counts.neutral },
+    { label: "Sad", icon: <LuFrown size={28} />, count: counts.sad },
+  ];
+
+  return (
+    <div className="grid grid-cols-3 gap-4 mt-4 text-center">
+      {moods.map(({ label, icon, count }) => (
+        <div
+          key={label}
+          className="bg-[--color-card] text-[--color-light] p-4 rounded-xl shadow-md flex flex-col items-center justify-center"
+        >
+          <div className="text-[--color-accent]">{icon}</div>
+          <p className="mt-2 text-sm text-muted">{label}</p>
+          <p className="mt-1 text-xl font-bold">{count}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
